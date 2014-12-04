@@ -18,12 +18,15 @@ before_script:
   - mkdir -p shippable/codecoverage
 
 
-
+env:
+  - secure: Zh55KXi8uR24FQ4Y0cd+Y9Hfp5djDtV365igSiduZvYGzwFU4t1x04ula4XmKaGgbmO16y5E/N0oSWxF12iAK4hy6hT+KOTT4+H62/2nMTntvf69YDUlO1g9JslveMqUurQZ6jFKMhzmhBnQ9EvKIDJEZCgAIfmT4r67cCnGbnGxxOQ5zTCsFbyTOG9oma4Aam2W6Bd0mZySbRnbXIaqk/44uyc75AWF8ZcHjTpgKjL2HPXF7RE9xBu9yY8FuxpUdr4haBmxd4g9gCg+2NGv3Gtt28CYbQaK/V5Mn5Ebdtj3It0pijA32BdUXO+/q1N8SHKClw3Ep45nVpoKPWVMkA==
 
 script:
+  - echo $key1
   - nosetests test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   - which python && coverage run --branch test.py
   - which python && coverage xml -o shippable/codecoverage/coverage.xml test.py
+  
 
 #cache: true 
 after_script:
