@@ -1,5 +1,7 @@
 language: python
 
+build_image: drydock/u14pytpls:prod
+
 python:
    - 2.7
    - 2.6
@@ -26,6 +28,7 @@ script:
 after_script:
   - cp README.md ./shippable
 archive: true
+
 notifications:
      email:
          recipients:
